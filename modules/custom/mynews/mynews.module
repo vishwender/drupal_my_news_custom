@@ -1,0 +1,16 @@
+<?php
+/**
+* Implements hook_theme().
+*/
+
+function mynews_theme($existing, $type, $theme, $path){
+
+    return [
+        'mynews_template' => [
+            'variables' => [
+                'heading'=> 'Top Headlines',
+                'data' => []
+            ],
+        ],
+    ];
+}

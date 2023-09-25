@@ -1,0 +1,4 @@
+name: daily-news-app
+recipe: drupal10
+config:
+  webroot: .

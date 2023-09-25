@@ -1,0 +1,6 @@
+services:
+  mynews.client:
+    class: GuzzleHttp\Client
+    factory: mynews.client.factory:get
+  mynews.client.factory:
+    class: Drupal\mynews\ClientFactory
