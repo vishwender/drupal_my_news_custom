@@ -1,10 +1,11 @@
-mynews.getnews:
+mynews.getinnews:
   path: '/get-in-news'
   defaults:
     _controller: 'Drupal\mynews\Controller\MyNewsController::getInNews'
     _title: 'India - Latest news'
   requirements:
     _permission: 'access content'
+
 mynews.getusnews:
   path: '/get-us-news'
   defaults:
@@ -12,10 +13,29 @@ mynews.getusnews:
     _title: 'US - Latest News'
   requirements:
     _permission: 'access content'
+
+mynews.getsource:
+  path: '/get-sources'
+  defaults:
+    _controller: 'Drupal\mynews\Controller\MyNewsController::getSources'
+    _title: 'News Source'
+  requirements:
+    _permission: 'access content'
+
+mynews.getcategorynews:
+  path: '/news/{url}'
+  defaults:
+    _controller: 'Drupal\mynews\Controller\MyNewsController::getCategoryNews'
+    _title: 'News'
+  requirements:
+    _permission: 'access content'
+  options:
+    menu_name: main
+
 mynews.settings:
   path: '/admin/config/services/mynews'
   defaults:
     _form: '\Drupal\mynews\MynewsSettingsForm'
     _title: 'My news Settings'
   requirements:
-    _permission: 'administer site configuration'     
+    _permission: 'administer site configuration'  
