@@ -1,9 +1,9 @@
 <?php
 namespace Drupal\mynews\Controller;
 use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\Component\Serialization\Json;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MyNewsController extends ControllerBase{
 
