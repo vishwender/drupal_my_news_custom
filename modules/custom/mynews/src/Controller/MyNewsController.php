@@ -61,8 +61,8 @@ class MyNewsController extends ControllerBase{
         echo '<pre>'; print_r($result['sources']);die();
     }
 
-    public function getCategoryNews(Request $request, $url){
-        $result = $this->getNewsByCategory($url, $country='in');
+    public function getCategoryNews(Request $request, $category){
+        $result = $this->getNewsByCategory($category, $country='in');
         //echo '<pre>'; print_r($result);die();
         return [
             '#theme'=>'mynews_template',

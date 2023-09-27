@@ -23,7 +23,7 @@ mynews.getsource:
     _permission: 'access content'
 
 mynews.getcategorynews:
-  path: '/news/{url}'
+  path: '/news/{category}'
   defaults:
     _controller: 'Drupal\mynews\Controller\MyNewsController::getCategoryNews'
     _title: 'News'
