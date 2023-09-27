@@ -1,8 +1,9 @@
 <h2>{{heading}}</h2>
 {% for item in data %}
+    <hr>
     <article>
-        <img src="{{item.urlToImage}}" alt="Article Image">
         <h2>{{ item.title }}</h2>
+        <img src="{{item.urlToImage}}" alt="Article Image">
         <p>{{item.description}}<a href="{{item.url}}" target="_blank"> Read More...</a></p>
     </article>
 {% endfor %}
