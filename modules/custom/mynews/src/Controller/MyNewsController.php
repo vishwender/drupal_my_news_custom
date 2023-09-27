@@ -13,17 +13,17 @@ class MyNewsController extends ControllerBase{
         return $mynews_access_token;
     }
 
-    public function getNewsByCategory($category){
+    public function getNewsByCategory($category,$country){
         $config  = $this->getConfig();
         $client  = \Drupal::httpClient();
-        $url = "https://newsapi.org/v2/top-headlines?category=$category&language=en&apiKey=$config";
+        $url = "https://newsapi.org/v2/top-headlines?category=$category&country=$country&language=en&apiKey=$config";
         $request = $client->get(trim($url));  
         $response = $request->getBody()->getContents();
         $result = json::decode($response);
         return $result;
     }
     
-    public function getInNews(){
+/*     public function getInNews(){
         $config  = $this->getConfig();
         $client  = \Drupal::httpClient();
         $url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=$config";
@@ -35,9 +35,9 @@ class MyNewsController extends ControllerBase{
                 '#theme'=>'mynews_template',
                 '#data' => $result['articles']
                ];
-    }
+    } */
 
-    public function getUsNews(){
+/*     public function getUsNews(){
         $config = $this->getConfig();
         $client  = \Drupal::httpClient();
         $url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=$config";
@@ -49,7 +49,7 @@ class MyNewsController extends ControllerBase{
                 '#theme'=>'mynews_template',
                 '#data' => $result['articles']
                ];
-    }
+    } */
 
     public function getSources(){
         $config =  $this->getConfig();
@@ -62,7 +62,16 @@ class MyNewsController extends ControllerBase{
     }
 
     public function getCategoryNews(Request $request, $url){
-        $result = $this->getNewsByCategory($url);
+        $result = $this->getNewsByCategory($url, $country='in');
+        //echo '<pre>'; print_r($result);die();
+        return [
+            '#theme'=>'mynews_template',
+            '#data' => $result['articles']
+           ];
+    }
+
+    public function getNewsByCountry(Request $request, $country){
+        $result = $this->getNewsByCategory($category='general', $country);
         //echo '<pre>'; print_r($result);die();
         return [
             '#theme'=>'mynews_template',
