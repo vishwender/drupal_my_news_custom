@@ -34,7 +34,7 @@ mynews.getcountrynews:
   path: '/news/international/{country}'
   defaults:
     _controller: 'Drupal\mynews\Controller\MyNewsController::getNewsByCountry'
-    _title: 'News'
+    _title: 'International News'
   requirements:
     _permission: 'access content'
 

@@ -62,6 +62,7 @@ class MyNewsController extends ControllerBase{
     }
 
     public function getCategoryNews(Request $request, $category){
+       
         $result = $this->getNewsByCategory($category, $country='in');
         //echo '<pre>'; print_r($result);die();
         return [
